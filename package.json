@@ -1,13 +1,14 @@
 {
     "name": "iddy-js",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Iddy Javascript SDK",
     "author": "Iddy",
     "license": "MIT",
     "main": "dist/index.js",
     "scripts": {
         "dev": "webpack --mode development --progress --color --display-error-details",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "publish": "npm publish"
     },
     "dependencies": {},
     "devDependencies": {

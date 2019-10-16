@@ -1,4 +1,4 @@
-import IddyClient from './iddyClient'
+import Authentication from './authentication'
 
 // interface IIddyClientOptions {
 //     domain: string
@@ -15,4 +15,4 @@ import IddyClient from './iddyClient'
 //
 // export { functionA }
 
-export default IddyClient
+export { Authentication }

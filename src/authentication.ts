@@ -5,8 +5,16 @@ interface clientOptions {
 const userCacheKey = 'iddy.user'
 const isAuthenticatedCacheKey = 'iddy.isAuthenticated'
 
-export default class IddyClient {
+export default class Authentication {
     domain: string
+
+    constructor(clientOptions) {
+        if (clientOptions.domain) {
+            this.domain = `https://${clientOptions.domain}` || ''
+        } else {
+            this.domain = ''
+        }
+    }
 
     init = clientOptions => {
         if (clientOptions.domain) {
