@@ -1,0 +1,21 @@
+{
+    "name": "iddy-js",
+    "version": "0.0.1",
+    "description": "Iddy Javascript SDK",
+    "author": "Iddy",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "webpack --mode development --progress --color --display-error-details",
+        "build": "webpack --mode production"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^12.6.8",
+        "prettier": "^1.18.2",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "webpack": "^4.36.1",
+        "webpack-cli": "^3.3.6"
+    }
+}
