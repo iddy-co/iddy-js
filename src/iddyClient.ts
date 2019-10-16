@@ -8,7 +8,7 @@ const isAuthenticatedCacheKey = 'iddy.isAuthenticated'
 export default class IddyClient {
     domain: string
 
-    constructor(clientOptions) {
+    init = clientOptions => {
         if (clientOptions.domain) {
             this.domain = `https://${clientOptions.domain}` || ''
         } else {
