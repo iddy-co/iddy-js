@@ -15,4 +15,4 @@ import Authentication from './authentication'
 //
 // export { functionA }
 
-export { Authentication }
+export default { Authentication }
