@@ -14,3 +14,4 @@ const functionA = () => {
 }
 
 export { createIddyClient, functionA }
+export default IddyClient
