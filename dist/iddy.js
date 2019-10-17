@@ -7,7 +7,7 @@
 		exports["Iddy"] = factory();
 	else
 		root["Iddy"] = factory();
-})(window, function() {
+})(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

@@ -14,7 +14,8 @@ module.exports = {
         filename: isdev ? 'iddy.js': 'iddy.min.js',
         libraryTarget: 'umd',
         library: 'Iddy',
-        umdNamedDefine: true
+        umdNamedDefine: true,
+        globalObject: 'this'
     },
     resolve: {
         modules: [path.resolve('./node_modules'), path.resolve('./src')],
