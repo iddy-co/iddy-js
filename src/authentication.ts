@@ -24,6 +24,22 @@ export default class Authentication {
         }
     }
 
+    getToken = async () => {
+        let user = null // localStorage.getItem(userCacheKey)
+        user = user ? JSON.parse(user) : null
+        if (!user) {
+            const response = await fetch(`${this.domain}/api/token`, { mode: 'cors', credentials: 'include' })
+            if (response.ok) {
+                user = await response.json()
+                localStorage.setItem(userCacheKey, JSON.stringify(user))
+                localStorage.setItem(isAuthenticatedCacheKey, 'true')
+            } else {
+                user = null
+            }
+        }
+        return user
+    }
+
     getUser = async () => {
         let user = null // localStorage.getItem(userCacheKey)
         user = user ? JSON.parse(user) : null
