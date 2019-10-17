@@ -215,38 +215,36 @@ var Authentication = /** @class */ (function () {
                 }
             });
         }); };
-        this.loginWithRedirect = function (_a) {
-            var redirectUri = _a.redirectUri;
+        this.loginWithRedirect = function (options) {
+            var _a = (options || {}).redirectUri, redirectUri = _a === void 0 ? null : _a;
             if (window) {
                 redirectUri = redirectUri ? redirectUri : window.location.href;
                 window.location.href = _this.domain + "/login?redirectUri=" + encodeURIComponent(redirectUri);
             }
         };
-        this.logout = function (_a) {
-            var returnTo = _a.returnTo;
-            return __awaiter(_this, void 0, void 0, function () {
-                var response, data;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0:
-                            localStorage.removeItem(userCacheKey);
-                            localStorage.removeItem(isAuthenticatedCacheKey);
-                            return [4 /*yield*/, fetch(this.domain + "/api/logout", { mode: 'cors', credentials: 'include' })];
-                        case 1:
-                            response = _b.sent();
-                            return [4 /*yield*/, response.json()];
-                        case 2:
-                            data = _b.sent();
-                            if (returnTo) {
-                                if (window) {
-                                    window.location.href = returnTo;
-                                }
+        this.logout = function (options) { return __awaiter(_this, void 0, void 0, function () {
+            var _a, returnTo, response, data;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = (options || {}).returnTo, returnTo = _a === void 0 ? null : _a;
+                        localStorage.removeItem(userCacheKey);
+                        localStorage.removeItem(isAuthenticatedCacheKey);
+                        return [4 /*yield*/, fetch(this.domain + "/api/logout", { mode: 'cors', credentials: 'include' })];
+                    case 1:
+                        response = _b.sent();
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        data = _b.sent();
+                        if (returnTo) {
+                            if (window) {
+                                window.location.href = returnTo;
                             }
-                            return [2 /*return*/];
-                    }
-                });
+                        }
+                        return [2 /*return*/];
+                }
             });
-        };
+        }); };
         if (clientOptions.domain) {
             this.domain = "https://" + clientOptions.domain || false;
         }

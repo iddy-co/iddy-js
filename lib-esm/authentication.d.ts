@@ -5,10 +5,6 @@ export default class Authentication {
     getToken: () => Promise<any>;
     getUser: () => Promise<any>;
     isAuthenticated: () => Promise<boolean>;
-    loginWithRedirect: ({ redirectUri }: {
-        redirectUri: any;
-    }) => void;
-    logout: ({ returnTo }: {
-        returnTo: any;
-    }) => Promise<void>;
+    loginWithRedirect: (options: any) => void;
+    logout: (options: any) => Promise<void>;
 }
