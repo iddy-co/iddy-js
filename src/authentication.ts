@@ -75,6 +75,7 @@ export default class Authentication {
         const data = await response.json()
         console.log('logout', data)
         if (returnTo) {
+            alert(1)
             if (window) {
                 window.location.href = returnTo
             }

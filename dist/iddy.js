@@ -238,6 +238,7 @@ var Authentication = /** @class */ (function () {
                         data = _b.sent();
                         console.log('logout', data);
                         if (returnTo) {
+                            alert(1);
                             if (window) {
                                 window.location.href = returnTo;
                             }
