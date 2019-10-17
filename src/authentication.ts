@@ -25,19 +25,17 @@ export default class Authentication {
     }
 
     getToken = async () => {
-        let user = null // localStorage.getItem(userCacheKey)
-        user = user ? JSON.parse(user) : null
-        if (!user) {
+        let token = null // localStorage.getItem(userCacheKey)
+        token = token ? JSON.parse(token) : null
+        if (!token) {
             const response = await fetch(`${this.domain}/api/token`, { mode: 'cors', credentials: 'include' })
             if (response.ok) {
-                user = await response.json()
-                localStorage.setItem(userCacheKey, JSON.stringify(user))
-                localStorage.setItem(isAuthenticatedCacheKey, 'true')
+                token = await response.json()
             } else {
-                user = null
+                token = null
             }
         }
-        return user
+        return token
     }
 
     getUser = async () => {

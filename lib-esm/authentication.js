@@ -47,28 +47,26 @@ var Authentication = /** @class */ (function () {
             }
         };
         this.getToken = function () { return __awaiter(_this, void 0, void 0, function () {
-            var user, response;
+            var token, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        user = null // localStorage.getItem(userCacheKey)
+                        token = null // localStorage.getItem(userCacheKey)
                         ;
-                        user = user ? JSON.parse(user) : null;
-                        if (!!user) return [3 /*break*/, 4];
+                        token = token ? JSON.parse(token) : null;
+                        if (!!token) return [3 /*break*/, 4];
                         return [4 /*yield*/, fetch(this.domain + "/api/token", { mode: 'cors', credentials: 'include' })];
                     case 1:
                         response = _a.sent();
                         if (!response.ok) return [3 /*break*/, 3];
                         return [4 /*yield*/, response.json()];
                     case 2:
-                        user = _a.sent();
-                        localStorage.setItem(userCacheKey, JSON.stringify(user));
-                        localStorage.setItem(isAuthenticatedCacheKey, 'true');
+                        token = _a.sent();
                         return [3 /*break*/, 4];
                     case 3:
-                        user = null;
+                        token = null;
                         _a.label = 4;
-                    case 4: return [2 /*return*/, user];
+                    case 4: return [2 /*return*/, token];
                 }
             });
         }); };
