@@ -4,8 +4,9 @@
     "description": "Iddy Javascript SDK",
     "author": "Iddy",
     "license": "MIT",
-    "main": "dist/index.js",
+    "main": "dist/iddy.js",
     "scripts": {
+        "watch": "yarn dev --watch &",
         "dev": "webpack --mode development --progress --color --display-error-details",
         "build": "webpack --mode production",
         "publish": "npm publish"
