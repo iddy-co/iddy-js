@@ -46,7 +46,9 @@ export default class Authentication {
     }
 
     loginWithRedirect = ({ redirectUri }) => {
-        window.location.href = `${this.domain}/login?redirectUri=${encodeURIComponent(redirectUri)}`
+        if (window) {
+            window.location.href = `${this.domain}/login?redirectUri=${encodeURIComponent(redirectUri)}`
+        }
     }
 
     logout = async ({ returnTo }) => {
@@ -54,6 +56,8 @@ export default class Authentication {
         localStorage.removeItem(isAuthenticatedCacheKey)
         const response = await fetch(`${this.domain}/api/logout`, { mode: 'cors', credentials: 'include' })
         const data = await response.json()
-        window.location.href = returnTo
+        if (window) {
+            window.location.href = returnTo
+        }
     }
 }

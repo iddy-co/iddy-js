@@ -193,7 +193,9 @@ var Authentication = /** @class */ (function () {
         }); };
         this.loginWithRedirect = function (_a) {
             var redirectUri = _a.redirectUri;
-            window.location.href = _this.domain + "/login?redirectUri=" + encodeURIComponent(redirectUri);
+            if (window) {
+                window.location.href = _this.domain + "/login?redirectUri=" + encodeURIComponent(redirectUri);
+            }
         };
         this.logout = function (_a) {
             var returnTo = _a.returnTo;
@@ -210,7 +212,9 @@ var Authentication = /** @class */ (function () {
                             return [4 /*yield*/, response.json()];
                         case 2:
                             data = _b.sent();
-                            window.location.href = returnTo;
+                            if (window) {
+                                window.location.href = returnTo;
+                            }
                             return [2 /*return*/];
                     }
                 });
