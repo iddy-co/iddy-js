@@ -128,6 +128,7 @@ var Authentication = /** @class */ (function () {
                         return [4 /*yield*/, response.json()];
                     case 2:
                         data = _b.sent();
+                        console.log('logout', data);
                         if (returnTo) {
                             if (window) {
                                 window.location.href = returnTo;

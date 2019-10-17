@@ -73,6 +73,7 @@ export default class Authentication {
         localStorage.removeItem(isAuthenticatedCacheKey)
         const response = await fetch(`${this.domain}/api/logout`, { mode: 'cors', credentials: 'include' })
         const data = await response.json()
+        console.log('logout', data)
         if (returnTo) {
             if (window) {
                 window.location.href = returnTo
