@@ -129,8 +129,10 @@ var Authentication = /** @class */ (function () {
                             return [4 /*yield*/, response.json()];
                         case 2:
                             data = _b.sent();
-                            if (window) {
-                                window.location.href = returnTo;
+                            if (returnTo) {
+                                if (window) {
+                                    window.location.href = returnTo;
+                                }
                             }
                             return [2 /*return*/];
                     }
