@@ -86,6 +86,7 @@ var Authentication = /** @class */ (function () {
         this.loginWithRedirect = function (_a) {
             var redirectUri = _a.redirectUri;
             if (window) {
+                redirectUri = redirectUri ? redirectUri : window.location.href;
                 window.location.href = _this.domain + "/login?redirectUri=" + encodeURIComponent(redirectUri);
             }
         };

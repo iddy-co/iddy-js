@@ -47,6 +47,7 @@ export default class Authentication {
 
     loginWithRedirect = ({ redirectUri }) => {
         if (window) {
+            redirectUri = redirectUri ? redirectUri : window.location.href
             window.location.href = `${this.domain}/login?redirectUri=${encodeURIComponent(redirectUri)}`
         }
     }
