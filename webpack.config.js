@@ -1,15 +1,28 @@
 const path = require('path')
+const webpack = require('webpack')
+
+const isdev = (process.env.NODE_ENV || 'development') === 'development'
+
+console.log('isdev', isdev)
 
 module.exports = {
-    mode   : 'development',
-    entry  : './index.ts',
+    mode: isdev ? 'development' : 'production',
     context: path.resolve(__dirname, 'src'),
-    devtool: 'inline-source-map',
+    entry  : './index.ts',
     output : {
-        filename: 'iddy.js',
         path    : path.resolve(__dirname, 'dist'),
-        libraryTarget: 'var',
-        library: 'Iddy'
+        filename: isdev ? 'iddy.js': 'iddy.min.js',
+        libraryTarget: 'umd',
+        library: 'Iddy',
+        umdNamedDefine: true
+    },
+    resolve: {
+        modules: [path.resolve('./node_modules'), path.resolve('./src')],
+        extensions: ['.ts', '.js']
+    },
+    devtool: 'source-map',
+    optimization: {
+        minimize: isdev ? false: true //Update this to true or false
     },
     module : {
         rules: [{
@@ -18,10 +31,5 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    resolve: {
-        modules: [path.resolve('./node_modules'), path.resolve('./src')],
-        extensions: ['.ts', '.js']
-    },
-    externals: {
-    }
+    externals: {}
 }

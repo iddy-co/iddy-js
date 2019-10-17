@@ -1,3 +1,3 @@
 import Authentication from './authentication'
 
-export default { Authentication }
+export { Authentication }

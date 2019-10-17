@@ -6,17 +6,20 @@
     "license": "MIT",
     "main": "dist/iddy.js",
     "scripts": {
+        "clean": "shx rm -rf dist lib lib-esm",
         "watch": "yarn dev --watch &",
-        "dev": "webpack --mode development --progress --color --display-error-details",
-        "build": "webpack --mode production",
+        "dev": "yarn clean && webpack --mode development --progress --color --display-error-details",
+        "build": "yarn clean && tsc && tsc -m es6 --outDir lib-esm && NODE_ENV=development webpack && NODE_ENV=production webpack",
         "publish": "npm publish"
     },
     "dependencies": {},
     "devDependencies": {
         "@types/node": "^12.6.8",
         "prettier": "^1.18.2",
+        "shx": "^0.3.2",
         "ts-loader": "^6.0.4",
         "typescript": "^3.5.3",
+        "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^4.36.1",
         "webpack-cli": "^3.3.6"
     }
