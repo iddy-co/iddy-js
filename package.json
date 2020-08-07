@@ -12,7 +12,6 @@
         "build": "yarn clean && tsc && tsc -m es6 --outDir lib-esm && NODE_ENV=development webpack && NODE_ENV=production webpack",
         "publish": "npm publish"
     },
-    "dependencies": {},
     "devDependencies": {
         "@types/node": "^12.6.8",
         "prettier": "^1.18.2",
